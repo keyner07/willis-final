@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Events Willis
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,36 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Events Willis</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <!-- <ion-grid fixed> -->
+    <!-- <ion-searchbar debounce="0" [(ngModel)]="this.searchBar.input" (ionInput)="updateSearchResults()"></ion-searchbar> -->
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-input [(ngModel)]="this.searchBar.input" placeholder="Buscar por titulo"></ion-input>
+          <ion-button (click)="updateSearchResults()" expand="block" shape="round">
+            Buscar
+          </ion-button>
+        </ion-col>
+        <ion-col size="12" size-lg="3" size-md="4" size-sm="6"
+                  *ngFor="let item of this.getEvents" >
+          <ion-card >
+            <ion-img [src]="item.url"></ion-img>
+          </ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ item.id }}</ion-card-subtitle>
+            <ion-card-title>{{ item.title }}</ion-card-title>
+          </ion-card-header>
+          <!-- <ion-card-content>
+            Dolor in dolore non qui deserunt aute pariatur consectetur occaecat culpa nisi nulla incididunt sint. Deserunt culpa magna ea et laboris quis ex nisi dolore nisi ea commodo nisi pariatur. Laborum quis anim ex dolor qui adipisicing mollit consequat et aliquip eu sunt. Sunt consequat incididunt enim enim proident Lorem veniam voluptate. Minim reprehenderit enim elit amet.
+          </ion-card-content> -->
+        </ion-col>
+        <!-- <ion-col *ngIf="this.getEvents.length < 1" size="12">
+          <ion-label>No hay items que coincidan</ion-label>
+        </ion-col> -->
+      </ion-row>
+    </ion-grid>
 </ion-content>

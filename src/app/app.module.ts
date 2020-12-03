@@ -8,9 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { JwPaginationComponent } from 'jw-angular-pagination'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, JwPaginationComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
